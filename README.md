@@ -142,3 +142,42 @@ Após o cadastro, você pode verificar o Firestore para confirmar se o documento
 - Abra o console Firebase.
 - Navegue até Firestore Database.
 - Verifique se a coleção users foi criada e os dados do usuário foram armazenados com o uid como chave.
+  
+👥 Membros
+<table> 
+     <tr> 
+          <td align="center"> 
+               <a href="https://github.com/mockjk"> 
+                    <img src="https://avatars.githubusercontent.com/mockjk" width="100px;" alt="mockjk"/>
+                    <br /> 
+                    <sub>
+                         <b>
+                              Mock
+                         </b>
+                    </sub> 
+               </a> 
+          </td> 
+          <td align="center"> 
+               <a href="https://github.com/hayasshida"> 
+                    <img src="https://avatars.githubusercontent.com/hayasshida" width="100px;" alt="hayasshida"/> 
+                    <br /> 
+                    <sub>
+                         <b>
+                              Hayashida
+                         </b>
+                    </sub> 
+               </a> 
+          </td>
+          <td>
+               <a href="https://github.com/Caua-Guerra">
+                    <img src="https://avatars.githubusercontent.com/Caua-Guerra" width="100px;" alt="Caua-Guerra"/> 
+                    <br /> 
+                    <sub>
+                         <b>
+                              Guerra
+                         </b>
+                    </sub> 
+               </a> 
+          </td> 
+     </tr> 
+</table>
