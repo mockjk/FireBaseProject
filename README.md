@@ -73,11 +73,72 @@ const registerUser = async (email, password, fullName, birthDate) => {
 Perceba que o código acima não faz uso de padrões de design como o uso de objetos como parâmetro da função, e sim recebe variáveis soltas.
 
 ### 4. Conectar Formulário ao Cadastro
-Agora, crie um formulário simples para capturar o email, senha, nome completo e data de nascimento e conecte-o à função `registerUser`.
+```javascript
+<TextField
+  placeholder="Nome Completo"
+  value={user.fullName}
+  onChangeText={(fullName) => setUser({ ...user, fullName })}
+/>
+<TextField
+  placeholder="Email"
+  value={user.email}
+  onChangeText={(email) => setUser({ ...user, email })}
+/>
+<TextField
+  placeholder="Senha"
+  value={user.password}
+  secureTextEntry
+  onChangeText={(password) => setUser({ ...user, password })}
+/>
+<TextField
+  placeholder="Confirmar Senha"
+  value={user.confirmPassword}
+  secureTextEntry
+  onChangeText={(confirmPassword) => setUser({ ...user, confirmPassword })}
+/>
+<Button label="Registrar" onPress={() => registerUser(user.email, user.password, user.fullName, user.birthDate)} />
+```
 
-### 5. Verificando o Firestore
+### 5. Fluxo de Login
+```javascript
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from './firebaseConfig';
+
+const loginUser = async (email, password) => {
+  try {
+    const userCredential = await signInWithEmailAndPassword(auth, email, password);
+    const user = userCredential.user;
+    console.log("Usuário logado com sucesso:", user);
+    // Redirecionar para a tela principal ou dashboard
+  } catch (error) {
+    console.error("Erro no login de usuário:", error.message);
+  }
+};
+```
+
+### 6. Formulário de Login
+```javascript
+<TextField
+  placeholder="Email"
+  value={email}
+  onChangeText={setEmail}
+/>
+<TextField
+  placeholder="Senha"
+  value={password}
+  secureTextEntry
+  onChangeText={setPassword}
+/>
+<Button label="Login" onPress={() => loginUser(email, password)} />
+```
+
+### 7. Erros Comuns
+
+- Email já em uso.
+
+### 8. Verificando o Firestore
 Após o cadastro, você pode verificar o Firestore para confirmar se o documento foi criado corretamente:
 
-Abra o console Firebase.
-Navegue até Firestore Database.
-Verifique se a coleção users foi criada e os dados do usuário foram armazenados com o uid como chave.
+- Abra o console Firebase.
+- Navegue até Firestore Database.
+- Verifique se a coleção users foi criada e os dados do usuário foram armazenados com o uid como chave.
