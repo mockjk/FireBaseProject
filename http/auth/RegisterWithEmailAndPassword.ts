@@ -30,8 +30,7 @@ export default async function tryRegisterWithEmailAndPassword(user: User) {
       email: user.email,
       createdAt: new Date(),
     });
-
-    console.log("Deu certo!");
+    
     return response;
   } catch (err: any) {
     console.error(err);
